@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>CRUD simple App</title>
+</head>
+<body onload="all()">
+    <section class="p-12 w-full flex flex-col">
+        <div class="w-full h-20 pl-5 flex items-center justify-between">
+            <button id="buttonAdd" onclick="displayFormAdd()" class="w-32 h-[60%] rounded-xl bg-blue-600 text-white">
+                Add +
+            </button>
+            <div class="w-[70%] h-14 rounded-xl border flex items-center pl-4 bg-gray-300">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="search" type="text" class="w-[80%] bg-gray-300 h-full text-white focus:outline-none placeholder:text-black h-full rounded-xl pl-3" placeholder="Search">
+            </div>
+        </div>
+        <div id="block1">
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th class="border px-4 py-2">id</th>
+                        <th class="border px-4 py-2">Numero</th>
+                        <th class="border px-4 py-2">Nom</th>
+                        <th class="border px-4 py-2">Note</th>
+                        <th class="border px-4 py-2">Filier</th>
+                        <th class="border px-4 py-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+            <div class="w-full h-20 flex items-center">
+                <h1 class="font-bold">Total est : <span id="total" class="text-blue-600"></span></h1>
+            </div>
+        </div>
+        <form onsubmit="addStg(event)" action="" id="formAdd" class="p-3 mt-5 w-full h-40 shadow flex-col flex justify-center items-center">
+            <div class="w-full h-full flex justify-center gap-3 items-center">
+                <input id="numero" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Numero">
+                <input id="nom" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Nom">
+                <input id="note" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Note">
+                <input id="filier" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Filier">
+            </div>
+            <div class="w-full h-20 flex items-center pl-4">
+                <button type="submit" id="buttonSubmit" class="w-32 h-[80%] rounded-xl bg-blue-600 text-white">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        <form onsubmit="modifierForm(event)" action="" id="modifierForm" class="p-3 mt-5 w-full h-40 shadow flex-col flex justify-center items-center">
+            <div class="w-full h-full flex justify-center gap-3 items-center">
+                <input id="uNumero" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Numero">
+                <input id="uNom" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Nom">
+                <input id="uNote" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Note">
+                <input id="uFilier" type="text" class="w-1/4 h-10 rounded-xl shadow pl-3" placeholder="Filier">
+            </div>
+            <div class="w-full h-20 flex items-center pl-4">
+                <button type="submit" id="buttonSubmit" class="w-32 h-[80%] rounded-xl bg-blue-600 text-white">
+                    Modifier
+                </button>
+            </div>
+        </form>
+    </section>
+    <script src="./crud.js"></script>
+</body>
+</html>
